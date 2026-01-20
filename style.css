@@ -4,6 +4,8 @@
     --text-main: #1e272e;
     --accent: #d35400;
     --border: #e1e4e8;
+    --link: #2c6fb7;
+    --link-hover: #1b4f72;
 }
 
 body {
@@ -52,7 +54,7 @@ header h1 {
 
 /* The Horizontal Card */
 .card {
-    display: flex; /* Side-by-side layout */
+    display: flex;
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -60,9 +62,9 @@ header h1 {
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
-/* Left Column: Images stacked */
+/* Left Column: Images */
 .photo-column {
-    flex: 0 0 400px; /* Fixed width for images */
+    flex: 0 0 400px;
     background: #2f3640;
     display: flex;
     flex-direction: column;
@@ -96,9 +98,9 @@ header h1 {
     border-bottom: 1px solid #444;
 }
 
-/* Right Column: Transcription */
+/* Right Column */
 .content-column {
-    flex: 1; /* Takes up remaining space */
+    flex: 1;
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -111,14 +113,35 @@ header h1 {
     font-weight: 600;
 }
 
+/* Title */
 .content-column h3 {
     font-family: 'Crimson Pro', serif;
     font-size: 1.5rem;
-    margin: 0 0 15px 0;
+    margin: 0 0 6px 0;
 }
 
+/* UID / Collection Link */
+.uid-link {
+    font-size: 0.75rem;
+    margin-bottom: 16px;
+    color: #7f8c8d;
+    font-weight: 600;
+}
+
+.uid-link a {
+    color: var(--link);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.uid-link a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+/* Transcription */
 .transcription-box {
-    background: #fdfcf0; /* Paper-like tint */
+    background: #fdfcf0;
     border-left: 4px solid var(--accent);
     padding: 20px;
     font-family: 'Crimson Pro', serif;
@@ -147,10 +170,19 @@ button {
     cursor: pointer;
 }
 
-button:disabled { background: #ccc; }
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
 
-/* Responsive: Stack vertically on small screens */
+/* Responsive */
 @media (max-width: 850px) {
-    .card { flex-direction: column; }
-    .photo-column { flex: none; width: 100%; }
+    .card {
+        flex-direction: column;
+    }
+
+    .photo-column {
+        flex: none;
+        width: 100%;
+    }
 }
