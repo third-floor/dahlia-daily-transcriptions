@@ -39,12 +39,12 @@ function renderGallery() {
         card.innerHTML = `
             <div class="photo-column">
                 <div class="photo-wrapper">
-                    <span>Back</span>
-                    <img src="${front}" onclick="window.open('${front}')" loading="lazy">
-                </div>
-                <div class="photo-wrapper">
                     <span>Front</span>
                     <img src="${back}" onclick="window.open('${back}')" loading="lazy">
+                </div>
+                <div class="photo-wrapper">
+                    <span>Back</span>
+                    <img src="${front}" onclick="window.open('${front}')" loading="lazy">
                 </div>
             </div>
 
@@ -115,3 +115,4 @@ document.getElementById('nextBtn').addEventListener('click', () => {
 });
 
 loadData();
+
