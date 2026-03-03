@@ -29,8 +29,38 @@ header h1 {
     margin: 0;
 }
 
+header p {
+    font-weight: 300;
+    opacity: 0.8;
+    margin: 8px 0 20px;
+}
+
+/* --- Site Navigation --- */
+.site-nav {
+    margin-bottom: 20px;
+}
+
+.site-nav a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 6px 16px;
+    border-radius: 20px;
+    transition: all 0.2s;
+}
+
+.site-nav a:hover {
+    color: white;
+    border-color: var(--accent);
+    background: var(--accent);
+}
+
 .search-container {
-    margin-top: 20px;
+    margin-top: 0;
 }
 
 #searchInput {
