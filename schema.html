@@ -253,36 +253,36 @@ footer a{color:rgba(255,255,255,.6)}
           <div class="edetail">
             <div class="espec">
               <div class="elbl">What this field does</div>
-              <p class="edesc">A pointer to a shared vocabulary document that maps our field names onto internationally recognised terms used by museums, libraries, and archives. Adding this turns our JSON records into Linked Open Data — meaning other institutions can automatically understand and connect to them — without changing how the data looks or works in practice. Think of it as a translation key that runs quietly in the background.</p>
+              <p class="edesc">A pointer to a shared vocabulary document that maps our field names onto internationally recognised terms used by museums, libraries, and archives. </p>
 
-              <p class="edesc" style="margin-top:-6px"><strong style="color:var(--ink)">Why Linked Art?</strong> The example URI points to the Linked Art vocabulary because it is the closest fit to what this schema describes: physical cultural heritage objects with agents, dates, and spatial annotations, expressed in JSON-LD. Linked Art is built on the CIDOC-CRM museum standard but deliberately simplified — it trades some expressivity for practicality, and it has been validated at scale on photographic archives (the PIA project at Basel processed 53,000+ photographs using it). It is also actively maintained by a community that includes major museums and libraries.</p>
+              <p class="edesc" style="margin-top:-6px"><strong style="color:var(--ink)">Why Linked Art?</strong> The example URI points to the Linked Art vocabulary because it is the closest fit to what this schema describes: physical cultural heritage objects with agents, dates, and spatial annotations, expressed in JSON-LD.</p>
 
               <p class="edesc" style="margin-top:-6px"><strong style="color:var(--ink)">This is not the only option.</strong> The <code style="font-family:'JetBrains Mono',monospace;font-size:.8em;background:var(--codebg);padding:1px 5px;border-radius:3px">@context</code> field is just a URI — swapping it changes nothing else in the schema. Four alternatives worth considering, depending on your priorities:</p>
 
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
                 <div style="background:var(--codebg);border:1px solid var(--border);border-radius:6px;padding:12px 14px;font-size:.8rem;line-height:1.6">
                   <div style="font-weight:600;color:var(--ink);margin-bottom:4px">Dublin Core (dc: / dcterms:)</div>
-                  <div style="color:var(--muted)">The most widely understood vocabulary in libraries and archives. Very broad and not object-specific, but maximises interoperability with catalogue systems. Best choice if the primary audience is library discovery platforms rather than museum systems.</div>
-                  <div style="margin-top:6px;font-size:.72rem;color:var(--accent)">dublincore.org/specifications/dublin-core/dcmi-terms/</div>
+                  <div style="color:var(--muted)"> - </div>
+                  <div style="margin-top:6px;font-size:.72rem;color:var(--accent)">dublincore.org</div>
                 </div>
                 <div style="background:var(--codebg);border:1px solid var(--border);border-radius:6px;padding:12px 14px;font-size:.8rem;line-height:1.6">
                   <div style="font-weight:600;color:var(--ink);margin-bottom:4px">Schema.org</div>
-                  <div style="color:var(--muted)">Google, Bing, and other search engines read Schema.org natively — using it makes records directly indexable and discoverable via web search without any further configuration. Less expressive for complex object description, but by far the easiest path to public discoverability.</div>
-                  <div style="margin-top:6px;font-size:.72rem;color:var(--accent)">schema.org/Photograph</div>
+                  <div style="color:var(--muted)">Used by major search engines.</div>
+                  <div style="margin-top:6px;font-size:.72rem;color:var(--accent)">schema.org</div>
                 </div>
                 <div style="background:var(--codebg);border:1px solid var(--border);border-radius:6px;padding:12px 14px;font-size:.8rem;line-height:1.6">
                   <div style="font-weight:600;color:var(--ink);margin-bottom:4px">CIDOC-CRM (raw)</div>
-                  <div style="color:var(--muted)">The full museum ontology that Linked Art is derived from. More expressive and more precise, but significantly more complex to implement — field names become URIs like <code style="font-family:'JetBrains Mono',monospace;font-size:.85em">crm:E22_Human-Made_Object</code>. Worth considering if the end goal is full RDF triple-store integration.</div>
+                  <div style="color:var(--muted)">Linked Art is derived from this, but this is more complex</div>
                   <div style="margin-top:6px;font-size:.72rem;color:var(--accent)">cidoc-crm.org</div>
                 </div>
                 <div style="background:var(--codebg);border:1px solid var(--border);border-radius:6px;padding:12px 14px;font-size:.8rem;line-height:1.6">
                   <div style="font-weight:600;color:var(--ink);margin-bottom:4px">Records in Contexts (RiC)</div>
-                  <div style="color:var(--muted)">The International Council on Archives' new standard, designed specifically for archival collections rather than museum objects. Better models the provenance chains and custody records that press photograph archives accumulate over time. Still maturing but gaining adoption in national archives.</div>
+                  <div style="color:var(--muted)">Just another suggestion to explore.</div>
                   <div style="margin-top:6px;font-size:.72rem;color:var(--accent)">ica.org/standards/RiC/RiC-O_1-1.html</div>
                 </div>
               </div>
 
-              <p class="edesc" style="margin-top:-2px">A pragmatic middle path — used by the PIA project — is a <strong>custom minimal context</strong> that maps only the most important fields (object identifier, people, dates, locations) onto their equivalents in two or three vocabularies simultaneously. This gives interoperability where it counts without requiring the full overhead of any single standard.</p>
+              <p class="edesc" style="margin-top:-2px">Another option is to map only the most important fields (e.g. object identifier, people, dates, locations) onto their equivalents in multiple vocabularies simultaneously. This was done by the PIA project (2023).</p>
 
               <pre class="snip-single"><span class="k">"@context"</span>: <span class="sv">"https://linked.art/ns/v1/linked-art.json"</span></pre>
               <div class="snippet-wrap"><div class="snippet-tabs"><button class="stab active" onclick="switchTab(this,'schema')">Schema</button><button class="stab" onclick="switchTab(this,'example')">Example</button></div><div class="snippet-panel active" data-panel="schema"><pre class="snip"><span class="k">"@context"</span>: <span class="sv">"https://linked.art/ns/v1/linked-art.json"</span></pre></div><div class="snippet-panel" data-panel="example"><pre class="snip-ex"><span style="color:#aaa">// Minimal custom context mapping key fields to
