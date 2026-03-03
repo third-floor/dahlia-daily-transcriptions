@@ -389,7 +389,7 @@ footer a{color:rgba(255,255,255,.6)}
           <div class="edetail">
             <div class="espec">
               <div class="elbl">What this field does</div>
-              <p class="edesc">A list of the physical elements found on the photograph back — caption stickers, rubber stamps, handwritten notes, article cuttings, and so on. In v4, each element can optionally carry a precise spatial reference so that a viewer displaying the photograph alongside its metadata can highlight exactly which part of the image a piece of text came from. This follows the approach used by the PIA project at the University of Basel, which served over 180,000 machine-generated annotations this way.</p>
+              <p class="edesc">The field records not only the physical/visual components on the backs of photos, but also their position on the backs. There is an additional confidence value attached. It raises the question whether we should introduce a controlled/standardised vocabulary of all the potential elements.</p>
               <div class="snippet-wrap"><div class="snippet-tabs"><button class="stab active" onclick="switchTab(this,'schema')">Schema</button><button class="stab" onclick="switchTab(this,'example')">Example</button></div><div class="snippet-panel active" data-panel="schema"><pre class="snip"><span class="k">"components"</span>: [
   {
     <span class="k">"component_type"</span>: <span class="sv">"caption_sticker"</span> <span style="color:#888">| "rubber_stamp"
@@ -443,7 +443,7 @@ footer a{color:rgba(255,255,255,.6)}
           <div class="edetail">
             <div class="espec">
               <div class="elbl">What this field does</div>
-              <p class="edesc">A photograph back is rarely written all at once — a typed caption might be the original; a rubber stamp and a handwritten date could have been added years later by a picture library. This field records those strata in order, helping us understand when different pieces of information were added, and by whom. Each layer now includes the same uncertainty and provenance records as other fields.</p>
+              <p class="edesc">This is another way of recording the layers, in case there is additional information about their temporal order (e.g. stamps with multiple dates, one behind and one on top of a description sticker).</p>
             <div class="snippet-wrap"><div class="snippet-tabs"><button class="stab active" onclick="switchTab(this,'schema')">Schema</button><button class="stab" onclick="switchTab(this,'example')">Example</button></div><div class="snippet-panel active" data-panel="schema"><pre class="snip"><span class="k">"annotation_layers"</span>: [
   {
     <span class="k">"layer_index"</span>: <span class="nv">0</span>,
