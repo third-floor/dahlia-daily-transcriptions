@@ -314,7 +314,7 @@ footer a{color:rgba(255,255,255,.6)}
         <h2>Object Identity</h2>
         <span class="stag">Required</span>
       </div>
-      <p class="sdesc">The basic identifying information for each photograph — its accession number, where it is held, and which institution assigned that number.</p>
+      <p class="sdesc">Object numbers derived from the transcription and from the metadata. </p>
 
       <div class="entry er" id="entry-object_number">
         <button class="etrig" onclick="toggle(this)">
@@ -332,7 +332,7 @@ footer a{color:rgba(255,255,255,.6)}
           <div class="edetail">
             <div class="espec">
               <div class="elbl">What this field does</div>
-              <p class="edesc">The photograph's reference number (for example <em>1983-5116/42460</em> stamped in the top-right corner). In v4, each piece of information extracted by the model now travels with a short record of how confident we are in it and where it came from — so a reviewer can immediately see whether a number was read from a clear stamp or guessed from a partially obscured mark.</p>
+              <p class="edesc">The photograph's object number (for example <em>1983-5116/42460</em> usually handwritten in one of the corners of the photo. The schema denotes in which part of the photo the number appears, the confidence level assigned to it, and a "provenance" that tracks when it was generated.</p>
               <div class="snippet-wrap"><div class="snippet-tabs"><button class="stab active" onclick="switchTab(this,'schema')">Schema</button><button class="stab" onclick="switchTab(this,'example')">Example</button></div><div class="snippet-panel active" data-panel="schema"><pre class="snip"><span class="k">"object_number"</span>: {
   <span class="k">"value"</span>: <span class="sv">"reference number string"</span>,
   <span class="k">"source"</span>: <span class="sv">"description of where on the back it appears"</span>,
@@ -356,7 +356,7 @@ footer a{color:rgba(255,255,255,.6)}
 }</pre></div></div>
               <div class="lits">
                 <div class="litlbl">Key references</div>
-                <div class="lit"><em>Davet et al. (2023)</em> — Argues that AI-generated archival records must document their own making. Archival Science.</div>
+                <div class="lit"><em>Davet et al. (2023)</em> — Suggests the introduction of paradata to document how the information was generated (e.g. model name, timestamp, method etc.).</div>
               </div>
             </div>
             
@@ -371,7 +371,7 @@ footer a{color:rgba(255,255,255,.6)}
         <h2>Visual Structure</h2>
         <span class="stag">Required</span>
       </div>
-      <p class="sdesc">A description of the physical layout of the photograph's back — what types of text and marking appear on it, and how those markings layer on top of one another over time.</p>
+      <p class="sdesc">Documentation the visual layout and the visual elements appearing in the back of a photo (e.g. stamps, stickers, editorial marks, newspaper clippings etc.).</p>
 
       <div class="entry er" id="entry-components">
         <button class="etrig" onclick="toggle(this)">
