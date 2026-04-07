@@ -4,15 +4,32 @@ let currentPage = 1;
 const itemsPerPage = 5;
 let wholeWordMode = false;
 
+// ── List your chunk files here ───────────────────────────────────────────────
+const DATA_FILES = [
+    'data_1.json',
+    'data_2.json',
+    // add data_3.json etc. if the Python script produced more
+];
+
 async function loadData() {
     try {
-        const response = await fetch('data.json');
-        allData = await response.json();
+        const responses = await Promise.all(
+            DATA_FILES.map(f => fetch(f))
+        );
+
+        const chunks = await Promise.all(
+            responses.map(r => {
+                if (!r.ok) throw new Error(`Failed to fetch ${r.url}`);
+                return r.json();
+            })
+        );
+
+        allData = chunks.flat();
         allData.reverse();
         filteredData = [...allData];
         renderGallery();
     } catch (e) {
-        console.error("Failed to load data.json", e);
+        console.error("Failed to load data", e);
     }
 }
 
@@ -56,7 +73,6 @@ function renderGallery(searchTerm = '') {
     const end = start + itemsPerPage;
     const items = filteredData.slice(start, end);
 
-    // Results summary bar
     const summary = document.createElement('div');
     summary.id = 'results-summary';
     if (searchTerm) {
@@ -126,7 +142,6 @@ function renderGallery(searchTerm = '') {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Toggle button
 document.getElementById('wholeWordToggle').addEventListener('click', () => {
     wholeWordMode = !wholeWordMode;
     const btn = document.getElementById('wholeWordToggle');
