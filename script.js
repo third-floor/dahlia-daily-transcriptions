@@ -8,7 +8,8 @@ let wholeWordMode = false;
 const DATA_FILES = [
     'data_1.json',
     'data_2.json',
-    // add data_3.json etc. if the Python script produced more
+    'data_3.json',
+    'data_4.json'
 ];
 
 async function loadData() {
