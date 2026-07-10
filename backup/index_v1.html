@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Herald Archives | Transcription Verifier</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Daily Herald Archives</h1>
+        <p>Daily photo transcriptions for historical verification.</p>
+        <nav class="site-nav">
+            <a href="schema.html">Schema v4.0 &rarr;</a>
+        </nav>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search keywords, dates, or photographers...">
+            <button id="wholeWordToggle" title="Partial match — click for whole word">W</button>
+        </div>
+    </header>
+
+    <main id="gallery-container"></main>
+
+    <div class="pagination">
+        <button id="prevBtn">&larr; Previous</button>
+        <div id="pageIndicator">Page 1</div>
+        <button id="nextBtn">Next &rarr;</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
