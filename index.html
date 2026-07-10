@@ -3,20 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Herald Archives | Transcription Verifier</title>
+    <title>Daily Herald Archives | Transcription Search</title>
+
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <h1>Daily Herald Archives</h1>
-        <p>Daily photo transcriptions for historical verification.</p>
+        <p>Search and verify Daily Herald press photograph transcriptions.</p>
+
         <nav class="site-nav">
-            <a href="schema.html">Schema v4.0 &rarr;</a>
+            <a href="schema.html">Schema &rarr;</a>
         </nav>
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search keywords, dates, or photographers...">
-            <button id="wholeWordToggle" title="Partial match — click for whole word">W</button>
+
+        <div class="search-panel">
+            <div class="search-container">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search transcription, title, dates, photographers, places, people, rights..."
+                    autocomplete="off"
+                >
+
+                <button
+                    id="wholeWordToggle"
+                    title="Partial match — click for whole word"
+                    aria-label="Toggle whole-word search"
+                >
+                    W
+                </button>
+            </div>
+
+            <div class="search-options">
+                <label>
+                    <input type="checkbox" id="includeRationalesToggle">
+                    Include rationales in search
+                </label>
+
+                <label>
+                    <input type="checkbox" id="showStructuredToggle" checked>
+                    Show structured metadata
+                </label>
+            </div>
         </div>
     </header>
 
