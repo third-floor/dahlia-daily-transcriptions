@@ -4,20 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Herald Archives | Transcription Search</title>
-
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <header>
         <h1>Daily Herald Archives</h1>
         <p>Search and verify Daily Herald press photograph transcriptions.</p>
-
         <nav class="site-nav">
             <a href="schema.html">Schema &rarr;</a>
         </nav>
-
         <div class="search-panel">
             <div class="search-container">
                 <input
@@ -26,7 +22,6 @@
                     placeholder="Search transcription, title, dates, photographers, places, people, rights..."
                     autocomplete="off"
                 >
-
                 <button
                     id="wholeWordToggle"
                     title="Partial match — click for whole word"
@@ -35,13 +30,15 @@
                     W
                 </button>
             </div>
-
             <div class="search-options">
+                <label>
+                    <input type="checkbox" id="includeDeepMetadataToggle">
+                    Search additional metadata (fields not shown on cards)
+                </label>
                 <label>
                     <input type="checkbox" id="includeRationalesToggle">
                     Include rationales in search
                 </label>
-
                 <label>
                     <input type="checkbox" id="showStructuredToggle" checked>
                     Show structured metadata
@@ -50,14 +47,32 @@
         </div>
     </header>
 
+    <div id="loading-indicator" class="loading-box">
+        <div class="loading-title">Loading archive…</div>
+        <div class="progress-track">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="progress-label" id="progress-label">Starting…</div>
+    </div>
+
     <main id="gallery-container"></main>
 
     <div class="pagination">
         <button id="prevBtn">&larr; Previous</button>
         <div id="pageIndicator">Page 1</div>
         <button id="nextBtn">Next &rarr;</button>
+        <select id="pageSelect" aria-label="Jump to page"></select>
     </div>
 
+    <!--
+        worker.js is loaded twice on purpose:
+        1. Here, as a plain script — this makes all its normalisation
+           functions available on the main thread as a fallback for
+           browsers without Web Worker support (see script.js).
+        2. Again inside script.js via `new Worker('worker.js')` — the
+           normal path, which runs it on a background thread.
+    -->
+    <script src="worker.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
