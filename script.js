@@ -21,7 +21,6 @@ const DATA_FILES = [
     'data_2.json',
     'data_3.json',
     'data_4.json',
-    'data_5.json',
     'data_6.json',
     'data_7.json'
 ];
