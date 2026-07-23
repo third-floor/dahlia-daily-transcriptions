@@ -224,6 +224,9 @@ function getMakerDetails(item) {
 }
 
 function getImageLinks(item) {
+    if (Array.isArray(item.imgs) && item.imgs.length) {
+        return item.imgs.map(s => String(s).trim()).filter(Boolean);
+    }
     if (item.image_links) {
         return item.image_links.split(';').map(s => s.trim()).filter(Boolean);
     }
