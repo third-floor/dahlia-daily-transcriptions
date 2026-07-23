@@ -13,6 +13,8 @@
     --metadata-bg: #f7f9fb;
     --error-bg: #fff4f4;
     --error-border: #c0392b;
+    --highlight-bg: #ffe58a;
+    --highlight-border: #e0a500;
 }
 
 * {
@@ -147,6 +149,50 @@ header p {
     transform: translateY(1px);
 }
 
+/* ── Loading indicator ──────────────────────────────────────────────────── */
+
+.loading-box {
+    max-width: 620px;
+    margin: 28px auto 0;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.loading-box.hidden {
+    display: none;
+}
+
+.loading-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    transition: width 0.25s ease;
+}
+
+.progress-label {
+    margin-top: 8px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
 /* ── Layout ─────────────────────────────────────────────────────────────── */
 
 #gallery-container {
@@ -252,6 +298,7 @@ header p {
     font-weight: 600;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 6px;
 }
 
@@ -331,6 +378,48 @@ header p {
     overflow-wrap: anywhere;
 }
 
+/* ── Search highlighting ────────────────────────────────────────────────── */
+
+mark.hit {
+    background: var(--highlight-bg);
+    border-bottom: 2px solid var(--highlight-border);
+    color: inherit;
+    padding: 0 1px;
+    border-radius: 2px;
+}
+
+/* ── Maker / photographer attribution ──────────────────────────────────── */
+
+.source-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    background: #eef1f2;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 1px 7px;
+    margin-left: 5px;
+}
+
+.maker-sep {
+    color: #bdc3c7;
+    margin: 0 2px;
+}
+
+/* ── Hidden-metadata match note ─────────────────────────────────────────── */
+
+.match-note {
+    font-size: 0.76rem;
+    color: #8a5a00;
+    background: #fff6e0;
+    border: 1px solid #f0d78c;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+}
+
 /* ── Structured metadata ───────────────────────────────────────────────── */
 
 .structured-metadata {
@@ -378,6 +467,7 @@ header p {
     align-items: center;
     gap: 20px;
     margin: 50px 0;
+    flex-wrap: wrap;
 }
 
 button {
@@ -403,6 +493,18 @@ button:disabled {
     color: var(--text-muted);
     font-size: 0.88rem;
     font-weight: 600;
+}
+
+#pageSelect {
+    padding: 9px 14px;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    max-width: 200px;
 }
 
 /* ── Status boxes ───────────────────────────────────────────────────────── */
