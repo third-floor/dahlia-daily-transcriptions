@@ -22,7 +22,9 @@ const DATA_FILES = [
     'data_3.json',
     'data_4.json',
     'data_6.json',
-    'data_7.json'
+    'data_7.json',
+    'data_8.json',
+    'data_9.json'
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
